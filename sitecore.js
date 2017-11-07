@@ -1,6 +1,6 @@
 var script = document.createElement("script");
 script.src = "https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.9/ace.js";
-document.head.appendChild(script);
+document.body.appendChild(script);
 
 var nodeToCheck = null,
 currentInterval = null;
@@ -30,6 +30,6 @@ function onLoad(){
         else console.log(label.text());
     });
 }
-console.log(jQuery);
-console.log($);
+console.log(jQuery('a.scContentTreeNodeNormal').length);
+console.log($('a.scContentTreeNodeNormal').length);
 console.log('SiteCore BetterEditor has loaded');
