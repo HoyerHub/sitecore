@@ -30,4 +30,6 @@ function onLoad(){
         else console.log(label.text());
     });
 }
+console.log(jQuery);
+console.log($);
 console.log('SiteCore BetterEditor has loaded');
