@@ -2,13 +2,16 @@ var script = document.createElement("script");
 script.src = "https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.9/ace.js";
 document.head.appendChild(script);
 
-var nodeToCheck = null;
+var nodeToCheck = null,
+currentInterval = null;
 
 jQuery('a.scContentTreeNodeNormal').click(function(){
-    console.log("Clearing old loade");
-    clearInterval(waitForLoad);
+    if (currentInterval != null) {
+        console.log("Clearing old loader");
+        clearInterval(waitForLoad);
+    }
     nodeToCheck = this;
-    setInterval(waitForLoad, 300);
+    currentInterval = setInterval(waitForLoad, 300);
     console.log("Waiting for Node");
 });
 
@@ -19,7 +22,7 @@ function waitForLoad() {
 }
 
 function onLoad(){
-    clearInterval(waitForLoad);
+    clearInterval(currentInterval);
     console.log("Node is active");
     jQuery('textarea').each(function(){
         var label = jQuery(this).parent().parent().find(".scEditorFieldLabel");
