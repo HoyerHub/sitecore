@@ -4,7 +4,7 @@ document.body.appendChild(script);
 
 var scEx_nodeToCheck = null,
     scEx_currentInterval = null,
-    scEx_Callback;
+    scEx_Callback = null;
 
 
 scContentEditor.prototype.onTreeNodeClick = function (sender, id) {
