@@ -2,8 +2,9 @@ var script = document.createElement("script");
 script.src = "https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.9/ace.js";
 document.body.appendChild(script);
 
-var nodeToCheck = null,
-    currentInterval = null;
+var scEx_nodeToCheck = null,
+    scEx_currentInterval = null,
+    scEx_Callback;
 
 
 scContentEditor.prototype.onTreeNodeClick = function (sender, id) {
@@ -14,7 +15,7 @@ scContentEditor.prototype.onTreeNodeClick = function (sender, id) {
             var focusKeeper = top.document.getElementById('scIEFocusKeeper');
             if (focusKeeper) focusKeeper.focus();
         }
-        scForm.postRequest("", "", "", "LoadItem(\"" + id + "\")");
+        scForm.postRequest("", "", "", "LoadItem(\"" + id + "\")", sc);
         $(sender.id).focus();
     }, 1);
     console.log(sender);
