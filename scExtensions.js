@@ -17,7 +17,7 @@ scContentEditor.prototype.onTreeNodeClick = function (sender, id) {
         scForm.postRequest("", "", "", "LoadItem(\"" + id + "\")");
         $(sender.id).focus();
     }, 1);
-    
+    console.log(sender);
     return false;
 }
 
