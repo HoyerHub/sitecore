@@ -5,6 +5,26 @@ document.body.appendChild(script);
 var nodeToCheck = null,
     currentInterval = null;
 
+
+scContentEditor.prototype.onTreeNodeClick = function (sender, id) {
+    sender = $(sender);
+    setTimeout(function () {
+        scForm.disableRequests = true;
+        if (navigator.userAgent.indexOf('Trident') > 0) {
+            var focusKeeper = top.document.getElementById('scIEFocusKeeper');
+            if (focusKeeper) focusKeeper.focus();
+        }
+        scForm.postRequest("", "", "", "LoadItem(\"" + id + "\")");
+        $(sender.id).focus();
+    }, 1);
+    
+    return false;
+}
+
+
+/*
+Old Solution
+
 jQuery('a.scContentTreeNodeNormal').click(function () {
     if (currentInterval != null) {
         console.log("Clearing old loader");
@@ -41,8 +61,6 @@ var hide = function () {
     });
 };
 
-(function () {
-    'use strict';
     setInterval(function () {
         if ($('div#Languages.scScrollbox').length) {
             if (!$('#Nick').length) {
@@ -56,4 +74,4 @@ var hide = function () {
 console.log(jQuery('a.scContentTreeNodeNormal').length);
 console.log($('a.scContentTreeNodeNormal').length);
 console.log('SiteCore Improvements has loaded');
-
+*/
