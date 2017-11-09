@@ -15,7 +15,7 @@ scContentEditor.prototype.onTreeNodeClick = function (sender, id) {
             var focusKeeper = top.document.getElementById('scIEFocusKeeper');
             if (focusKeeper) focusKeeper.focus();
         }
-        scForm.postRequest("", "", "", "LoadItem(\"" + id + "\")", sc);
+        scForm.postRequest("", "", "", "LoadItem(\"" + id + "\")", scEx_Callback);
         $(sender.id).focus();
     }, 1);
     console.log(sender);
